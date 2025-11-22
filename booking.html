@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Your EV Service | One Step</title>
+  <style>
+    /* Reset and Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #00ffae;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: #00ffae;
+    }
+
+    /* Booking Section */
+    .booking-section {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    .booking-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #111;
+    }
+
+    .subheading {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #777;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      background-color: #00ffae;
+      color: white;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00e693;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+
+      .booking-section {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+
+      .booking-section h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">ONE STEP</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="journey.html">Journey</a></li>
+        <li><a href="emergency.html">Emergency</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="booking-section">
+    <h1>Book Your EV Charging Service</h1>
+    <p class="subheading">Please fill out the form below to schedule your EV charging service. We will confirm your booking within 24 hours.</p>
+    
+    <form id="booking-form">
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required />
+      </div>
+
+      <div class="form-group">
+        <label for="service">Service Type:</label>
+        <select id="service" name="service" required>
+          <option value="home">Home Charging</option>
+          <option value="work">Workplace Charging</option>
+          <option value="emergency">Emergency Charging</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Preferred Date & Time:</label>
+        <input type="datetime-local" id="date" name="date" required />
+      </div>
+
+      <div class="form-group">
+        <label for="address">Service Address:</label>
+        <input type="text" id="address" name="address" placeholder="Enter your address" required />
+      </div>
+
+      <button type="button" onclick="redirectToWhatsApp()">Book Now</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 One Step EV Recharge. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function redirectToWhatsApp() {
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const service = document.getElementById('service').value;
+      const date = document.getElementById('date').value;
+      const address = document.getElementById('address').value;
+
+      const message = `Hello! Your EV charging service has been booked successfully. Here are your details:\n\nFull Name: ${name}\nPhone: ${phone}\nService: ${service}\nPreferred Date & Time: ${date}\nAddress: ${address}\n\nThank you for booking with One Step!`;
+
+      const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      
+      window.open(whatsappLink, '_blank');
+    }
+  </script>
+</body>
+</html>

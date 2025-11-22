@@ -1,0 +1,180 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f2f7ff;
+    color: #333;
+    scroll-behavior: smooth;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  /* Header */
+  .header {
+    background: #111;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    color: #00ffae;
+    font-weight: bold;
+  }
+  
+  .nav ul {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav a:hover {
+    color: #00ffae;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    background: linear-gradient(to right, #111, #333), url('ev-van.jpg') no-repeat center/cover;
+    color: white;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-image img {
+    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s ease;
+  }
+  
+  .primary {
+    background-color: #00ffae;
+    color: #111;
+  }
+  
+  .primary:hover {
+    background-color: #00e0a0;
+  }
+  
+  .secondary {
+    background-color: #111;
+    color: #fff;
+    border: 2px solid #00ffae;
+  }
+  
+  .secondary:hover {
+    background-color: #00ffae;
+    color: #111;
+  }
+  
+  /* Services Section */
+  .services-section {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .service-card {
+    padding: 2rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* Story Section */
+  .story-section {
+    padding: 4rem 2rem;
+    background: #e0f7f7;
+    text-align: center;
+  }
+  
+  .story-section ul {
+    margin-top: 1rem;
+    line-height: 2rem;
+  }
+  
+  /* Emergency Section */
+  .emergency-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: #fff;
+  }
+  
+  /* Footer */
+  .footer {
+    background: #111;
+    color: #aaa;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero-image {
+      margin-top: 2rem;
+    }
+  }
+  

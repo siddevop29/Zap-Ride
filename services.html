@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services | One Step</title>
+  <link rel="stylesheet" href="virat.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">ONE STEP</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="journey.html">Journey</a></li>
+        <li><a href="emergency.html">Emergency</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="services-section">
+    <h1>Explore Our EV Services</h1>
+
+    <div class="tabs">
+      <button class="tab-button active" onclick="showTab('home')">Home Charging</button>
+      <button class="tab-button" onclick="showTab('work')">Workplace Charging</button>
+      <button class="tab-button" onclick="showTab('emergency')">Emergency Charging</button>
+    </div>
+
+    <div class="tab-content" id="home" style="display: block;">
+      <img src="home-charging.jpg" alt="Home Charging" class="service-image" />
+      <h2>Home Charging</h2>
+      <p>Get your EV charged right at home with our mobile charging service. No need to visit a station—our team will arrive at your home at a scheduled time to deliver top-up charging for your vehicle.</p>
+      <ul>
+        <li><strong>Service Duration:</strong> 1-2 hours</li>
+        <li><strong>Pricing:</strong> $30 per session</li>
+        <li><strong>Benefits:</strong> Convenient, save time, and energy efficient.</li>
+        <li><strong>Service Area:</strong> Available in select regions. Check availability by entering your ZIP code.</li>
+      </ul>
+      <button class="btn-book" onclick="window.location.href='booking.html'">Book Home Charging</button>
+    </div>
+
+    <div class="tab-content" id="work" style="display: none;">
+      <img src="work-charging.jpg" alt="Workplace Charging" class="service-image" />
+      <h2>Workplace Charging</h2>
+      <p>Charge your vehicle during office hours! Our service can be booked for workplace charging stations, making sure your EV is fully charged while you work.</p>
+      <ul>
+        <li><strong>Service Duration:</strong> 1-2 hours during work hours</li>
+        <li><strong>Pricing:</strong> $40 per session</li>
+        <li><strong>Benefits:</strong> Convenient, maximize productivity, and eco-friendly.</li>
+        <li><strong>Service Area:</strong> Available at partner offices and commercial areas.</li>
+      </ul>
+      <button class="btn-book" onclick="window.location.href='booking.html?service=work'">Book Workplace Charging</button>
+    </div>
+
+    <div class="tab-content" id="emergency" style="display: none;">
+      <img src="OIP.jpg" alt="Emergency Charging" class="service-image" />
+      <h2>Emergency Charging</h2>
+      <p>Stuck on the road with no battery left? Our emergency charging service will come to your rescue, charging your vehicle directly at the location where you are stranded.</p>
+      <ul>
+        <li><strong>Service Duration:</strong> 30 minutes to 1 hour depending on the battery level</li>
+        <li><strong>Pricing:</strong> $50 per session (rush fee applicable)</li>
+        <li><strong>Benefits:</strong> Quick response, 24/7 availability, no need to tow your vehicle.</li>
+        <li><strong>Service Area:</strong> Available in remote areas, highways, and specific cities.</li>
+      </ul>
+      <button class="btn-book" onclick="window.location.href='booking.html?service=emergency'">Request Emergency Charging</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 One Step EV Recharge. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.tab-content').forEach(div => div.style.display = 'none');
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(id).style.display = 'block';
+      document.querySelector(`.tab-button[onclick="showTab('${id}')"]`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
+-

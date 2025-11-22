@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZAP RIDE | Mobile EV Charging</title>
+  <meta name="description" content="EV charging wherever you are. ZAP RIDE brings power to your location in emergencies." />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">⚡ ZAP RIDE</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="journey.html">Journey</a></li>
+          <li><a href="emergency.html">Emergency</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <h1>Stranded with a Dead Battery?</h1>
+        <p>We bring the charge to your EV — anytime, anywhere.</p>
+        <a href="emergency.html" class="btn primary">🚨 Emergency Charge</a>
+      </div>
+      <div class="hero-image">
+        <img src="ev-charger.png" alt="EV Charger Van">
+      </div>
+    </section>
+
+    <section id="services" class="services-section">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card glass">
+          <h3>🏠 Home Charging</h3>
+          <p>Relax while we charge your EV right outside your home.</p>
+        </div>
+        <div class="service-card glass">
+          <h3>🏢 Workplace Charging</h3>
+          <p>Let us power up your EV while you're working productively.</p>
+        </div>
+        <div class="service-card glass">
+          <h3>🚨 Emergency Help</h3>
+          <p>Stranded on a highway? We'll reach with our mobile EV van.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="story-section">
+      <h2>Your Journey, Covered</h2>
+      <p><strong>Travelling</strong> and your EV battery dies?</p>
+      <ul>
+        <li>📲 Open ZAP RIDE</li>
+        <li>🔐 Login or Sign Up</li>
+        <li>🚨 Click on Emergency</li>
+        <li>🚐 Our Van Finds You</li>
+        <li>✅ Continue Your Journey</li>
+      </ul>
+    </section>
+
+    <section id="emergency" class="emergency-section">
+      <h2>🚨 Emergency EV Charging</h2>
+      <p>No plug? No problem. We’ll recharge or swap your battery wherever you are.</p>
+      <a href="login.html" class="btn secondary">Request Help</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 ZAP RIDE EV Services. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

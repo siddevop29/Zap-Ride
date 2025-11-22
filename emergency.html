@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emergency Service | One Step</title>
+  <link rel="stylesheet" href="kulu.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f8f9fa;
+    }
+    .emergency-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .emergency-form label {
+      font-weight: 600;
+      margin-top: 1rem;
+      display: block;
+    }
+    .emergency-form input, .emergency-form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .cta-button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .cta-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>ONE STEP</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="journey.html">Journey</a></li>
+        <li><a href="emergency.html" class="active">Emergency</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="emergency-service">
+      <h2>🚨 Emergency Charging Request</h2>
+      <p>If you're stranded and need immediate help, fill out the form. A WhatsApp confirmation will follow.</p>
+
+      <form id="emergencyForm" class="emergency-form">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name" />
+
+        <label for="phone">Phone Number (WhatsApp)</label>
+        <input type="tel" id="phone" name="phone" required placeholder="+91XXXXXXXXXX" />
+
+        <label for="vehicleModel">Vehicle Model</label>
+        <input type="text" id="vehicleModel" name="vehicleModel" required placeholder="Vehicle model" />
+
+        <label for="companyName">Company</label>
+        <input type="text" id="companyName" name="companyName" list="company-suggestions" placeholder="Optional" />
+        <datalist id="company-suggestions">
+          <option value="Tata">
+          <option value="Hyundai">
+          <option value="MG Motor">
+          <option value="Mahindra">
+          <option value="Kia">
+          <option value="BYD">
+          <option value="Tesla">
+        </datalist>
+
+        <label for="location">Full Address</label>
+        <input type="text" id="location" name="location" required placeholder="Enter your location or use GPS" />
+
+        <button type="button" onclick="getLocation()" class="cta-button">📍 Get Current Location</button>
+        <p id="location-status" style="color: green;"></p>
+
+        <label for="additionalInfo">Additional Information</label>
+        <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Any other info (optional)"></textarea>
+
+        <button type="submit" class="cta-button">🚗 Send Emergency Request</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 One Step EV Recharge. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        document.getElementById("location-status").innerText = "❌ Geolocation not supported.";
+      }
+    }
+
+    function showPosition(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const locationField = document.getElementById("location");
+      locationField.value = `Latitude: ${lat}, Longitude: ${lon}`;
+      document.getElementById("location-status").innerText = "📍 Location captured successfully!";
+    }
+
+    function showError(error) {
+      let message = "❌ Failed to get location.";
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          message = "❌ Location permission denied.";
+          break;
+        case error.POSITION_UNAVAILABLE:
+          message = "❌ Location info unavailable.";
+          break;
+        case error.TIMEOUT:
+          message = "❌ Request timed out.";
+          break;
+      }
+      document.getElementById("location-status").innerText = message;
+    }
+
+    // WhatsApp Message Trigger + Form Submission
+    document.getElementById("emergencyForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("fullName").value;
+      const phone = document.getElementById("phone").value;
+      const model = document.getElementById("vehicleModel").value;
+      const company = document.getElementById("companyName").value || "Not specified";
+      const location = document.getElementById("location").value;
+      const additionalInfo = document.getElementById("additionalInfo").value || "None";
+
+      const message = `*🚨 EMERGENCY CHARGING REQUEST*\n\n👤 Name: ${name}\n📞 WhatsApp: ${phone}\n🚗 Vehicle: ${company} - ${model}\n📍 Location: ${location}\n📝 Additional Info: ${additionalInfo}\n\nPlease respond ASAP!`;
+
+      // Open WhatsApp
+      const encodedMsg = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${phone.replace(/\D/g, '')}?text=${encodedMsg}`;
+      window.open(whatsappURL, "_blank");
+
+      // Submit to backend (optional)
+      this.submit(); // Only works if action & method set, or you handle with fetch()
+    });
+  </script>
+</body>
+</html>
